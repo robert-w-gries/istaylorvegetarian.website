@@ -25,7 +25,7 @@ const getTimeArrayFromSeconds = (elapsed) => {
 const getElapsedSeconds = (start, end) => Math.floor((end - start) / 1000);
 
 export default function Home() {
-  const [vegetarianTimeElapsed, setVegetarianTimeElapsed] = useState(0);
+  const [vegetarianTimeElapsed, setVegetarianTimeElapsed] = useState(getElapsedSeconds(VEGETARIAN_SINCE, Date.now()));
 
   useEffect(() => {
     const timer = setInterval(() => (
@@ -44,12 +44,12 @@ export default function Home() {
 
       <main className="flex-1 flex flex-col gap-10 justify-center items-center dark:text-white">
         <h1 className="text-5xl text-center">Is Taylor Vegetarian?</h1>
-        <p className="text-9xl">{vegetarianTimeElapsed > 0 ? "YES" : "NO"}</p>
+        <p className="text-9xl font-bold">{vegetarianTimeElapsed > 0 ? "YES" : "NO"}</p>
         <div className="flex flex-col items-center">
           <p className="text-4xl mb-6 text-center">Taylor has been vegetarian for...</p>
           <div className="flex flex-col lg:flex-row gap-10 text-4xl">
             {getTimeArrayFromSeconds(vegetarianTimeElapsed).map(({ key, value }, i) => (
-              <div key={key} className="flex flex-col justify-center items-center w-32 h-24 border rounded dark:border-gray-200">
+              <div key={key} className="flex flex-col justify-center items-center w-32 h-24 border rounded border-gray-800 dark:border-gray-200">
                 <div>{value}</div>
                 <div className="text-xl">{key}</div>
               </div>
