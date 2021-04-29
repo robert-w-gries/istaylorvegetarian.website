@@ -35,7 +35,7 @@ export default function Home() {
   });
 
   return (
-    <div className="h-screen flex flex-col dark:bg-gray-800">
+    <div className="min-h-screen p-8 flex flex-col dark:bg-gray-800">
       <Head>
         <title>Is Taylor Vegetarian?</title>
         <meta name="description" content="Is Taylor Vegetarian?" />
@@ -43,11 +43,11 @@ export default function Home() {
       </Head>
 
       <main className="flex-1 flex flex-col gap-10 justify-center items-center dark:text-white">
-        <h1 className="text-5xl">Is Taylor Vegetarian?</h1>
+        <h1 className="text-5xl text-center">Is Taylor Vegetarian?</h1>
         <p className="text-9xl">{vegetarianTimeElapsed > 0 ? "YES" : "NO"}</p>
         <div className="flex flex-col items-center">
-          <p className="text-4xl mb-6">Taylor has been vegetarian for...</p>
-          <div className="flex gap-10 text-4xl">
+          <p className="text-4xl mb-6 text-center">Taylor has been vegetarian for...</p>
+          <div className="flex flex-col lg:flex-row gap-10 text-4xl">
             {getTimeArrayFromSeconds(vegetarianTimeElapsed).map(({ key, value }, i) => (
               <div key={key} className="flex flex-col justify-center items-center w-32 h-24 border rounded dark:border-gray-200">
                 <div>{value}</div>
